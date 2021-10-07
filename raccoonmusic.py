@@ -21,7 +21,6 @@ for i in range(cogsLength):
 @client.event
 async def on_ready():
     change_status.start()
-    # await client.change_presence(status=discord.Status.online, activity=discord.Game("Inside Garbage Can"))
     print('Logged in as {0.user} successfully'.format(client))
 
 
