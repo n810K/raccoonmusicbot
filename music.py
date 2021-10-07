@@ -39,7 +39,14 @@ class music(commands.Cog):
 
     @commands.command(help = "Play a url")
     async def play(self, ctx, url):
-        #Rest to the next song
+        
+        voiceChannelID = ctx.author.voice.channel
+        if (ctx.voice_client == None):
+            await voiceChannelID.connect()
+        #if the bot is already in another channel
+        else:
+            await ctx.voice_client.move_to(voiceChannelID) 
+        #Reset to the next song
         ctx.voice_client.stop()
         voiceChannel = ctx.voice_client
 
