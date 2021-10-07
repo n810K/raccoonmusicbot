@@ -20,7 +20,7 @@ class music(commands.Cog):
     async def join(self,ctx):
         #If user is not in a voice channel
         if (ctx.author.voice == None):
-            print(ctx.author.voice)
+            #print(ctx.author.voice)
             await ctx.send("Please join a voice channel before using this command")
 
         voiceChannelID = ctx.author.voice.channel
@@ -46,6 +46,7 @@ class music(commands.Cog):
         #if the bot is already in another channel
         else:
             await ctx.voice_client.move_to(voiceChannelID) 
+
         #Reset to the next song
         ctx.voice_client.stop()
         voiceChannel = ctx.voice_client
@@ -55,7 +56,8 @@ class music(commands.Cog):
             extracted = info['formats'][0]['url']
             audioSource = await discord.FFmpegOpusAudio.from_probe(extracted, **FFMPEG_OPTIONS)
             voiceChannel.play(audioSource)
-
+        #https://www.youtube.com/watch?v=jHZlvRr9KxM
+        
     @commands.command(help = "Pause the song")
     async def pause(self, ctx):
         await ctx.voice_client.pause()
