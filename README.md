@@ -1,5 +1,4 @@
 # raccoonmusicbot
-![Python Versions][python-versions-badge]
 
 This project is a music bot for discord. Its purpose is to play music while in a server, and acts as a replacement to the music bots that have since been shut down (Groovy, Rhythm).
 
